@@ -58,7 +58,7 @@ describe('useEditController', () => {
             </EditController>
         );
         act(() => saveCallback({ foo: 'bar' }));
-        const crudUpdateAction = dispatch.mock.calls[2][0];
+        const crudUpdateAction = dispatch.mock.calls[1][0];
         expect(crudUpdateAction.type).toEqual('RA/UNDOABLE');
         expect(crudUpdateAction.payload.action.type).toEqual('RA/CRUD_UPDATE');
         expect(crudUpdateAction.payload.action.payload).toEqual({
@@ -80,7 +80,7 @@ describe('useEditController', () => {
             </EditController>
         );
         act(() => saveCallback({ foo: 'bar' }));
-        const crudUpdateAction = dispatch.mock.calls[2][0];
+        const crudUpdateAction = dispatch.mock.calls[1][0];
         expect(crudUpdateAction.type).toEqual('RA/CRUD_UPDATE');
         expect(crudUpdateAction.payload).toEqual({
             id: 12,
